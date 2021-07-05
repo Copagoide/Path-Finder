@@ -15,6 +15,8 @@ header {
   justify-content: space-between;
   align-items: center;
   user-select: none;
+  background: #b3dee2;
+  border-bottom: 5px solid #eee;
 }
 header .logo {
   padding: 0 15px 0 15px;

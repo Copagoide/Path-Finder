@@ -97,7 +97,9 @@ function nextToUp(row, column) {
     let cellUp = document.getElementById(row - 1 + "," + column);
     if ($(cellUp).hasClass("wall")) {/*Do nothing*/ }
     else if ($(cellUp).attr("style")) { }
+    else if ($(cellUp).hasClass("endNode")) { }
     else if ($(cellUp).hasClass("startNode")) { }
+    else if ($(cellUp).hasClass("endNodeReached")) { }
     else if ($(cellUp).hasClass("visitedNode")) { }
     else {
         $(cellUp).addClass("[" + lambda + "]");
@@ -109,7 +111,9 @@ function nextToDown(row, column) {
     let cellDown = document.getElementById((row + 1) + "," + column);
     if ($(cellDown).hasClass("wall")) {/*Do nothing*/ }
     else if ($(cellDown).attr("style")) { }
+    else if ($(cellDown).hasClass("endNode")) { }
     else if ($(cellDown).hasClass("startNode")) { }
+    else if ($(cellDown).hasClass("endNodeReached")) { }
     else if ($(cellDown).hasClass("visitedNode")) { }
     else {
         $(cellDown).addClass("[" + lambda + "]");
@@ -121,7 +125,9 @@ function nextToLeft(row, column) {
     let cellLeft = document.getElementById(row + "," + (column - 1));
     if ($(cellLeft).hasClass("wall")) {/*Do nothing*/ }
     else if ($(cellLeft).attr("style")) { }
+    else if ($(cellLeft).hasClass("endNode")) { }
     else if ($(cellLeft).hasClass("startNode")) { }
+    else if ($(cellLeft).hasClass("endNodeReached")) { }
     else if ($(cellLeft).hasClass("visitedNode")) { }
     else {
         $(cellLeft).addClass("[" + lambda + "]");
@@ -133,7 +139,9 @@ function nextToRight(row, column) {
     let cellRight = document.getElementById(row + "," + (column + 1));
     if ($(cellRight).hasClass("wall")) {/*Do nothing*/ }
     else if ($(cellRight).attr("style")) { }
+    else if ($(cellRight).hasClass("endNode")) { }
     else if ($(cellRight).hasClass("startNode")) { }
+    else if ($(cellRight).hasClass("endNodeReached")) { }
     else if ($(cellRight).hasClass("visitedNode")) { }
     else {
         $(cellRight).addClass("[" + lambda + "]");

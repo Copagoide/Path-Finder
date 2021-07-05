@@ -1,32 +1,12 @@
 const mazeButton = document.querySelector("#mazeButton");
 
-let mazePath = [];
-//let neighbours = [];
-
-let pathUp = 1;
-let pathRight = 2;
-let pathDown = 4;
-let pathLeft = 8;
-let visited = false;
-
-let visitedElements = 0;
-
-let mazeWidth = 20;
-let mazeHeight = 11;
-
-//Elements in the grid are disposed as (Y, X)
-let stackY = [1];
-let stackX = [1];
-
-/*
-function visited(wasVisited) {
-    this.visited = wasVisited;
-}
-function visited() {
-    return ;
-}*/
-
 mazeButton.addEventListener('click', () => {
+
+    let stackY = [1];
+    let stackX = [1];
+    let mazeWidth = 20;
+    let mazeHeight = 11;
+    let visitedElements = 0;
 
     for (let i = 0; i <= 22; i++) {
         for (let j = 0; j <= 40; j++) {
@@ -43,7 +23,6 @@ mazeButton.addEventListener('click', () => {
             
             let y = stackY[stackY.length - 1]   //setting Y to the last index of the Y stack.
             let x = stackX[stackX.length - 1]   //setting X to the last index of the X stack.
-            let mazeElement = document.getElementById(y + "," + x);
             let neighbours = [];
 
             let neighbourUp = null;
@@ -144,14 +123,10 @@ mazeButton.addEventListener('click', () => {
                 stackY.pop();    //backtracking
                 stackX.pop();
             }
-
-
-
         }
-        
     }
 
-    for (let i = 0; i <= 20; i++) {
+    for (let i = 0; i <= 22; i++) {
         for (let j = 0; j <= 40; j++) {
             let cell = document.getElementById(i + "," + j);
             
@@ -159,4 +134,5 @@ mazeButton.addEventListener('click', () => {
             $(cell).removeClass("neighbour");  
         }
     }
+    
 })

@@ -5,14 +5,10 @@ clearButton.addEventListener('click', () => {
         for(let j = 0; j <= 40; j++) {
             let cell = document.getElementById(i + "," + j);
 
-            //Removing color from the canvas
-            if($(cell).attr("style")){
-                $(cell).removeAttr("style");
-            }
+            //Removing classes from the canvas
             if ($(cell).hasClass("wall")) {
                 $(cell).removeClass("wall");
             }
-            //Removing classes from the canvas
             if ($(cell).hasClass("nextTo")) {
                 $(cell).removeClass("nextTo");
             }
@@ -28,15 +24,6 @@ clearButton.addEventListener('click', () => {
             if ($(cell).hasClass("endNodeReached")) {
                 $(cell).removeClass("endNodeReached");
                 $(cell).addClass("endNode");
-            }
-
-            //Adding color to the start and end node
-            if(i == 11 && j == 9){
-                cell.style.background = "#a8dadc";
-                cell.style.zindex = "100";
-            }
-            if(i == 11 && j == 31){
-                cell.style.background = "#e63946";
             }
         }
     }

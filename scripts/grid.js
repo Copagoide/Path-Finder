@@ -36,35 +36,27 @@ function makeGrid() {
             });
 
             function paintByClicking(element){
-                //element.style.background = "#555";
-                $(element).addClass("wallTransition");
+                if ($(element).hasClass("startNode") || $(element).hasClass("endNode") || $(element).hasClass("endNodeReached")) { }
+                else {
+                    $(element).addClass("wallTransition");
 
-                setTimeout(function() {
-                    if($(element).hasClass("wallTransition")){
-                        $(element).addClass("wall");
-                    }
-                },150);
+                    setTimeout(function() {
+                        if($(element).hasClass("wallTransition")){
+                            $(element).addClass("wall");
+                        }
+                    },150);
 
-                setTimeout(function() {
-                    if($(element).hasClass("wall")){
-                        $(element).removeClass("wallTransition");
-                    }
-                },300);
-
-
-                //Repainting start and end node cause of bugs :p
-                if(i == 11 && j == 9) {
-                    $(element).addClass("startNode");
-                    $(element).removeClass("wall");//doesnt realy work (?
-                }
-                if(i == 11 && j == 31) {
-                    $(element).addClass("endNode");
-                    $(element).removeClass("wall");
+                    setTimeout(function() {
+                        if($(element).hasClass("wall")){
+                            $(element).removeClass("wallTransition");
+                        }
+                    },300);
                 }
             }
+            
             function paintByHolding(element) {
-                if(condition1 == true && condition2 == true){
-                    //element.style.background = "#555";
+                if ($(element).hasClass("startNode") || $(element).hasClass("endNode") || $(element).hasClass("endNodeReached")) { }
+                else if(condition1 == true && condition2 == true) {
                     $(element).addClass("wallTransition");
 
                     setTimeout(function() {
@@ -91,7 +83,7 @@ function makeGrid() {
                 }
             }
 
-            //Creating a start-node and an end-node
+            //Creating a default start-node and an end-node
             if(i == 11 && j == 9){
                 $(cell).addClass("startNode");
                 $(cell).removeClass("wall");
