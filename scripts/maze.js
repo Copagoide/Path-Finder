@@ -83,7 +83,7 @@ mazeButton.addEventListener('click', async () => {
             }
 
             if (neighbours.length != 0) {
-                await waitThisTime(100);
+                await waitThisTime(4);
 
                 let changeDirection = neighbours[Math.floor(Math.random() * neighbours.length)];      //randomly chooses a neighbour
                 switch(changeDirection) {
