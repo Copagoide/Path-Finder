@@ -38,61 +38,61 @@ function createGrid() {
             });
 
             function paintByClicking(element){
-                if ($(element).hasClass("startNode") || $(element).hasClass("endNode") || $(element).hasClass("endNodeReached")) { }
+                if (element.classList.contains("startNode") || element.classList.contains("endNode") || element.classList.contains("endNodeReached")) { }
                 else {
-                    $(element).addClass("wallTransition");
+                    element.classList.add("wallTransition");
 
                     setTimeout(function() {
-                        if($(element).hasClass("wallTransition")){
-                            $(element).addClass("wall");
+                        if(element.classList.contains("wallTransition")){
+                            element.classList.add("wall");
                         }
                     },150);
 
                     setTimeout(function() {
-                        if($(element).hasClass("wall")){
-                            $(element).removeClass("wallTransition");
+                        if(element.classList.contains("wall")){
+                            element.classList.remove("wallTransition");
                         }
                     },300);
                 }
             }
             
             function paintByHolding(element) {
-                if ($(element).hasClass("startNode") || $(element).hasClass("endNode") || $(element).hasClass("endNodeReached")) { }
+                if (element.classList.contains("startNode") || element.classList.contains("endNode") || element.classList.contains("endNodeReached")) { }
                 else if(condition1 == true && condition2 == true) {
-                    $(element).addClass("wallTransition");
+                    element.classList.add("wallTransition");
 
                     setTimeout(function() {
-                        if($(element).hasClass("wallTransition")){
-                            $(element).addClass("wall");
+                        if(element.classList.contains("wallTransition")){
+                            element.classList.add("wall");
                         }
                     },150);
 
                     setTimeout(function() {
-                        if($(element).hasClass("wall")){
-                            $(element).removeClass("wallTransition");
+                        if(element.classList.contains("wall")){
+                            element.classList.remove("wallTransition");
                         }
                     },300);
                     
                     //Repainting start and end node cause of bugs :p
                     if(i == 11 && j == 9) {
-                        $(element).addClass("startNode");
-                        $(element).removeClass("wall");
+                        element.classList.add("startNode");
+                        element.classList.remove("wall");
                     }
                     if(i == 11 && j == 31) {
-                        $(element).addClass("endNode");
-                        $(element).removeClass("wall");
+                        element.classList.add("endNode");
+                        element.classList.remove("wall");
                     }
                 }
             }
 
             //Creating a default start-node and an end-node
             if(i == 11 && j == 9){
-                $(cell).addClass("startNode");
-                $(cell).removeClass("wall");
+                cell.classList.add("startNode");
+                cell.classList.remove("wall");
             }
             if(i == 11 && j == 31){
-                $(cell).addClass("endNode");
-                $(cell).removeClass("wall");
+                cell.classList.add("endNode");
+                cell.classList.remove("wall");
             }
         }
     }

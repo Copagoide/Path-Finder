@@ -10,21 +10,9 @@ clearButton.addEventListener('click', () => {
             let cell = document.getElementById(i + "," + j);
 
             //Removing classes from the canvas
-            if ($(cell).hasClass("wall")) {
-                $(cell).removeClass("wall");
-            }/*
-            if ($(cell).hasClass("nextTo")) {
-                $(cell).removeClass("nextTo");
+            if (cell.classList.contains("wall")) {
+                cell.classList.remove("wall");
             }
-            if ($(cell).hasClass("visitedNode")) {
-                $(cell).removeClass("visitedNode");
-            }
-            if ($(cell).hasClass("transition1")) {
-                $(cell).removeClass("transition1");
-            }
-            if ($(cell).hasClass("transition2")) {
-                $(cell).removeClass("transition2");
-            }*/
             if (cell.classList.contains("visited")) {
                 cell.classList.remove("visited");
             }
@@ -40,9 +28,12 @@ clearButton.addEventListener('click', () => {
             if (cell.classList.contains("returningPath")) {
                 cell.classList.remove("returningPath");
             }
-            if ($(cell).hasClass("endNodeReached")) {
-                $(cell).removeClass("endNodeReached");
-                $(cell).addClass("endNode");
+            if (cell.classList.contains("endNodeReached")) {
+                cell.classList.remove("endNodeReached");
+                cell.classList.add("endNode");
+            }
+            if (cell.className && !cell.classList.contains("startNode") && !cell.classList.contains("endNode") && !cell.classList.contains("endNodeReached")) {   
+                cell.removeAttribute("class");
             }
 
         }, 5 * j);

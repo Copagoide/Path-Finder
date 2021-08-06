@@ -12,7 +12,7 @@ findButton.addEventListener('click', () => {
     let startNode = document.getElementById(findStartNode());
     let endNode = document.getElementById(findEndNode());
 
-    if (startNode.classList.contains("startNode") && endNode.classList.contains("endNode")) {
+    if (startNode.classList.contains("startNode") && endNode.classList.contains("endNode") && startNode != endNode) {
         algorithm(startNodeY, startNodeX);
         countTimer();
     }
@@ -72,7 +72,6 @@ findButton.addEventListener('click', () => {
             let neighbourCell = document.getElementById(neighbourY + "," + neighbourX);
             
             if (neighbourCell != null && neighbourCell.classList.contains("[" + timerBasedCount + "]")) {
-                neighbourCell.classList.remove("[" + timerBasedCount + "]")
                 neighbourCell.classList.add("returningPath");
                 timerBasedCount--;
                 

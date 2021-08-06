@@ -119,6 +119,12 @@ td {
   user-select: none;
 }
 
+/* The great Transition node effect */
+.circleTransition {
+  border-radius: 50%;
+  transition: 0.25s;
+}
+
 /* Start/End Node */
 .startNode {
   background: #a8dadc;
@@ -164,7 +170,7 @@ td {
   transition: 0.15s;
 }
 
-/* Path */
+/* Paths */
 .returningPath {
   background: #fca311;
   transition: 0.15s;

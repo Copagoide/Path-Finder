@@ -20,41 +20,43 @@ moveButton.addEventListener('click', () => {
         for(let j = 0; j <= 40; j++) {
             let cell = document.getElementById(i + "," + j);
 
-            if ($(cell).hasClass("startNode")) {
-                $(cell).removeClass("startNode");
+            if (cell.classList.contains("startNode")) {
+                cell.classList.remove("startNode");
             }
-            if ($(cell).hasClass("endNode")) {
-                $(cell).removeClass("endNode");
+            if (cell.classList.contains("endNode")) {
+                cell.classList.remove("endNode");
             }
-            else if ($(cell).hasClass("endNodeReached")) {
-                $(cell).removeClass("endNodeReached");
+            else if (cell.classList.contains("endNodeReached")) {
+                cell.classList.remove("endNodeReached");
             }
 
             cell.addEventListener('click', () => {
                 if (conds.condicion1 == false) {
-                    $(cell).addClass("circleTransition");
+                    cell.classList.add("circleTransition");
 
                     setTimeout(() => {
-                        $(cell).addClass("startNode");
-                        $(cell).removeClass("circleTransition");
+                        cell.classList.add("startNode");
+                        cell.classList.remove("circleTransition");
                     }, 250);
 
                     setTimeout(() => {
-                        $(cell).removeClass("wall");
+                        cell.classList.remove("wall");
+                        cell.classList.remove("wallTransition");
                     }, 300);
 
                     conds.setCondicion1(true);
                 }
                 else if (conds.condicion2 == false && conds.condicion1 == true) {
-                    $(cell).addClass("circleTransition");
+                    cell.classList.add("circleTransition");
 
                     setTimeout(() => {
-                        $(cell).addClass("endNode");
-                        $(cell).removeClass("circleTransition");
+                        cell.classList.add("endNode");
+                        cell.classList.remove("circleTransition");
                     }, 250);
 
                     setTimeout(() => {
-                        $(cell).removeClass("wall");
+                        cell.classList.remove("wall");
+                        cell.classList.remove("wallTransition");
                     }, 300);
 
                     conds.setCondicion2(true);
@@ -63,28 +65,30 @@ moveButton.addEventListener('click', () => {
             
             cell.addEventListener("mouseover", function loll() {
                 if (conds.condicion1 == false) {
-                    $(cell).addClass("circleTransition");
+                    cell.classList.add("circleTransition");
 
                     setTimeout(() => {
-                        $(cell).addClass("startNodeHover");
-                        $(cell).removeClass("circleTransition");
-                    }, 150);
+                        cell.classList.add("startNodeHover");
+                        cell.classList.remove("circleTransition");
+                    }, 100);
 
                     setTimeout(() => {
-                        $(cell).removeClass("startNodeHover");
-                    }, 500);
+                        cell.classList.remove("startNodeHover");
+                        cell.classList.remove("wallTransition");
+                    }, 400);
                 }
                 else if (conds.condicion2 == false && conds.condicion1 == true) {
-                    $(cell).addClass("circleTransition");
+                    cell.classList.add("circleTransition");
 
                     setTimeout(() => {
-                        $(cell).addClass("endNodeHover");
-                        $(cell).removeClass("circleTransition");
-                    }, 150);
+                        cell.classList.add("endNodeHover");
+                        cell.classList.remove("circleTransition");
+                    }, 100);
 
                     setTimeout(() => {
-                        $(cell).removeClass("endNodeHover");
-                    }, 500);
+                        cell.classList.remove("endNodeHover");
+                        cell.classList.remove("wallTransition");
+                    }, 400);
                 }
             });
         }
