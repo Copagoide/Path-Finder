@@ -1,7 +1,9 @@
 let condition1 = false;
 let condition2 = false;
 
-function makeGrid() {
+createGrid();
+
+function createGrid() {
     let table = document.querySelector("#pixelCanvas");
 
     for(let i = 0; i <= 22; i++){
@@ -95,5 +97,3 @@ function makeGrid() {
         }
     }
 }
-
-makeGrid();

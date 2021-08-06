@@ -119,12 +119,6 @@ td {
   user-select: none;
 }
 
-/* The great Transition node effect */
-.circleTransition {
-  border-radius: 50%;
-  transition: 0.25s;
-}
-
 /* Start/End Node */
 .startNode {
   background: #a8dadc;
@@ -144,18 +138,19 @@ td {
 }
 
 /* Nodes */
-.nextTo {
-  border-radius: 50%;
-  transition: 0.2s;
-}
-.nodeTransition {
+.neighbourColor1 {
   background: #2d5388;
-  transition: 0.2s;
+  border-radius: 50%;
+  transition: 0.15s;
 }
-.visitedNode {
+.neighbourColor2 {
+  background: #2d5388;
+  transition: 0.15s;
+}
+.neighbourColor3 {
   background: #5798c0;
   border-radius: 4px;
-  transition: 0.2s;
+  transition: 0.3s;
 }
 
 /* Walls */
@@ -169,12 +164,8 @@ td {
   transition: 0.15s;
 }
 
-/* Paths */
+/* Path */
 .returningPath {
   background: #fca311;
-  transition: 0.15s;
-}
-.path {
-  background: #f6bd60;
   transition: 0.15s;
 }

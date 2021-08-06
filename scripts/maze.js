@@ -1,9 +1,3 @@
-function waitThisTime(ms) {
-    return new Promise (resolve => {
-        setTimeout(() => { resolve('') }, ms);
-    })
-}
-
 const mazeButton = document.querySelector("#mazeButton");
 
 mazeButton.addEventListener('click', async () => {
@@ -15,16 +9,25 @@ mazeButton.addEventListener('click', async () => {
     let visitedElements = 0;
 
     for (let i = 0; i <= 22; i++) {
+    setTimeout(() => {
+        
         for (let j = 0; j <= 40; j++) {
+        setTimeout(() => {
+
             let cell = document.getElementById(i + "," + j);
             
             if (cell.classList.contains("startNode") || cell.classList.contains("endNode")) { }
             else {
                 cell.classList.add("wall");
             }
+            
+        }, 5 * j);
         }
+
+    }, 10 * i);
     }
 
+    await waitThisTime(500);
     for (let k = 0; k < 22*40; k++) {
 
         if (visitedElements < mazeWidth * mazeHeight) {
@@ -49,7 +52,8 @@ mazeButton.addEventListener('click', async () => {
             if (stackY[stackY.length - 1] > 2) {
                 neighbourUp = document.getElementById(y - 2 + "," + x);
                 middleCellUp = document.getElementById(y - 1 + "," + x);
-                if (!neighbourUp.classList.contains("visitedMazePath")) { 
+                if (neighbourUp.classList.contains("visitedMazePath")) { }
+                else {
                     neighbourUp.classList.add("neighbour");
                     neighbours.push(0);
                 }
@@ -58,7 +62,8 @@ mazeButton.addEventListener('click', async () => {
             if (stackX[stackX.length - 1] < 38) {
                 neighbourRight = document.getElementById(y + "," + (x + 2));
                 middleCellRight = document.getElementById(y + "," + (x + 1));
-                if (!neighbourRight.classList.contains("visitedMazePath")) {
+                if (neighbourRight.classList.contains("visitedMazePath")) { }
+                else {
                     neighbourRight.classList.add("neighbour");
                     neighbours.push(1);
                 }
@@ -67,7 +72,8 @@ mazeButton.addEventListener('click', async () => {
             if (stackY[stackY.length - 1] < 20) {
                 neighbourDown = document.getElementById(y + 2 + "," + x);
                 middleCellDown = document.getElementById(y + 1 + "," + x);
-                if (!neighbourDown.classList.contains("visitedMazePath")) {
+                if (neighbourDown.classList.contains("visitedMazePath")) { }
+                else {
                     neighbourDown.classList.add("neighbour");
                     neighbours.push(2);
                 }
@@ -76,7 +82,8 @@ mazeButton.addEventListener('click', async () => {
             if (stackX[stackX.length - 1] > 2) {
                 neighbourLeft = document.getElementById(y + "," + (x - 2));
                 middleCellLeft = document.getElementById(y + "," + (x - 1));
-                if (!neighbourLeft.classList.contains("visitedMazePath")) {
+                if (neighbourLeft.classList.contains("visitedMazePath")) { }
+                else {
                     neighbourLeft.classList.add("neighbour");
                     neighbours.push(3);
                 }
@@ -142,3 +149,9 @@ mazeButton.addEventListener('click', async () => {
     }
     
 })
+
+function waitThisTime(ms) {
+    return new Promise (resolve => {
+        setTimeout(() => { resolve('') }, ms);
+    })
+}
